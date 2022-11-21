@@ -15,93 +15,85 @@ $post = new Post($pdo);
 $auth = new Auth($pdo);
 
 
-if(isset($_REQUEST['request'])){
-   $req = explode('/', rtrim($_REQUEST['request'], '/') );
-}
-else{
+if (isset($_REQUEST['request'])) {
+    $req = explode('/', rtrim($_REQUEST['request'], '/'));
+} else {
     http_response_code(404);
 }
 
 
-switch($_SERVER['REQUEST_METHOD']){
+switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
-       switch($req[0]){
-            case 'student':
-                if(count($req)>1){
-                     echo returnData($get->get_student($req[1]));
-                }else{
-                    echo returnData($get->get_student());
+        switch ($req[0]) {
+            case 'user':
+                if (count($req) > 1) {
+                    echo json_encode($get->get_user($req[1]));
+                    // echo returnData($get->get_user($req[1]));
+                } else {
+                    echo json_encode($get->get_user());
+                    // echo returnData($get->get_user());
                 }
-            break;
-            case 'faculty':
-                echo 'this is faculty endpoint';
-            break;
+                break;
+
             default:
                 http_response_code(403);
-            break;
-       }
-    break;
+                break;
+        }
+        break;
 
     case 'POST':
         $data = receiveData(file_get_contents("php://input"));
-        switch($req[0]){
+        switch ($req[0]) {
             case 'login':
-                echo json_encode($auth->login($data));   
-            break;
+                echo json_encode($auth->login($data));
+                break;
 
             case 'decrypt':
                 print_r($data);
-            break;
+                break;
 
             case 'student':
-                echo json_encode($post->add_student($data));   
-            break;
+                echo json_encode($post->add_student($data));
+                break;
 
             case 'adduser':
-                echo json_encode($auth->add_users($data));   
-            break;
+                echo json_encode($auth->add_users($data));
+                break;
 
             case 'editstudent':
                 echo json_encode($post->edit_student($data, $req[1]));
-            break;   
-            
+                break;
+
             case 'deletestudent':
                 echo json_encode($post->delete_student($req[1]));
-            break;
+                break;
             case 'test':
                 // echo $auth->encrypt_password("Aa123456789");
                 // echo $str;
-            break;
+                break;
 
             default:
                 http_response_code(403);
-            break;
-       }
+                break;
+        }
 
-    break;
+        break;
 
     case 'PATCH':
         $data = json_decode(file_get_contents("php://input"));
 
-        switch($req[0]){
+        switch ($req[0]) {
             case 'student':
-            break;
+                break;
             case 'faculty':
-            break;
+                break;
             default:
                 http_response_code(403);
-            break;
-       }
-    break;
+                break;
+        }
+        break;
 
     default:
         http_response_code(403);
-    break;
+        break;
 }
-
-
-
-
-
-
-?>
