@@ -1,6 +1,7 @@
 <?php
 
-class Auth{
+class Auth
+{
 
     protected $pdo, $gm;
 
@@ -11,22 +12,25 @@ class Auth{
     }
 
 
-    private function encrypt_password($pword){
+    private function encrypt_password($pword)
+    {
         $hashFormat = "$2y$10$";
         $saltLength = 22;
         $salt = $this->generateSalt($saltLength);
-        return crypt($pword, $hashFormat.$salt);
+        return crypt($pword, $hashFormat . $salt);
     }
 
-    private function generateSalt($length){
+    private function generateSalt($length)
+    {
         $str_hash = md5(uniqid(mt_rand(), true));
         $b64string = base64_encode($str_hash);
         $mb64string = str_replace("+", ".", $b64string);
         return substr($mb64string, 0, $length);
     }
 
-    private function checkPassword($pword, $existingPassword){
-       return $existingPassword === crypt($pword, $existingPassword);
+    private function checkPassword($pword, $existingPassword)
+    {
+        return $existingPassword === crypt($pword, $existingPassword);
     }
 
 
@@ -50,14 +54,14 @@ class Auth{
     {
         $username = $data->username;
         $password = $data->password;
-        $sql = "SELECT studnum, pword, fname, lname, token, student.is_archived FROM users INNER JOIN student USING(studnum) WHERE studnum = ? AND users.is_archived = 0 LIMIT 1";
+        $sql = "SELECT user_id, user_name, user_password,  FROM user LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
 
         try {
             $stmt->execute([$username]);
             if ($stmt->rowCount() > 0) {
                 $res = $stmt->fetchAll()[0];
-                if ($this->checkPassword($password,$res['pword'])) {
+                if ($this->checkPassword($password, $res['pword'])) {
                     $data = array(
                         "fname" => $res['fname'],
                         "lname" => $res['lname'],
@@ -70,14 +74,11 @@ class Auth{
                 } else {
                     return $this->gm->response_payload(null, "failed", "Incorrect password", 401);
                 }
-            }
-            else{
+            } else {
                 return $this->gm->response_payload(null, "failed", "Incorrect username", 401);
             }
         } catch (\PDOException $e) {
             return $this->gm->response_payload(null, "failed", "Unable to process data.", 401);
         }
     }
-
 }
-?>
