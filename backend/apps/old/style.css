@@ -1,0 +1,42 @@
+.top-container{
+    color: white;
+    font-size: 50px;
+    background-color: aqua;
+    width: 50%;
+    border-left-style: solid;
+    border-left-width: 10px;
+    border-left-color: red;
+}
+
+.bottom-container{
+    height: 500px;
+    /* width: 100%; */
+    color: grey;
+    background-color: pink;
+    font-size: 20px;
+
+    /* Margin */
+    /* margin: 25px; */
+    /* margin-top: 25px;
+    margin-right: 10px;
+    margin-left: 30px;
+    margin-bottom: 25px; */
+
+    /* margin: 25px 5px; */
+
+    margin: 10px 15px 20px 25px;
+
+    border: 10px solid aquamarine;
+    border-left: 5px double teal;
+
+    border-style: dotted;
+    
+
+
+    border-radius: 50px;
+    border-top-left-radius: 100px;
+
+    padding: 20px 30px 40px 50px;
+   
+
+}
