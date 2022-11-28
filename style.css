@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inria Sans', sans-serif;
+}
+
+#navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #3A3F47;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.30);
+  position: relative;
+  z-index: 1;
+}
+
+#navbar>h1{
+  color: #FFD36A;
+  text-transform: uppercase;
+  padding-left: 30px;
+}
+
+.main{
+  display: flex;
+  flex-direction: row;
+}
+
+.main>.toDoLists{
+  width: 20%;
+  height: 825px;
+background-color: #232932;
+}
+
+.main>.toDoLists>.header {
+  width: 100%;
+  height: 50px;
+  background-color: #FFD36A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main>.toDoLists>.contents>.toDoList{
+  position: relative;
+  background-color: #D9D9D9;
+  border-radius: 2px;
+  margin: 10px;
+  height: 40px;
+}
+
+
+.main>.toDoLists>.contents>.toDoList>.number{
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFD36A;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.main>.toDoLists>.contents>.toDoList>p{
+  position: absolute;
+  top: 10px;
+  left: 40px;
+}
+
+.main>.toDoLists>.contents>.toDoList>.check{
+  position: absolute;
+  top: 10px;
+  right: 40px; 
+  font-size: 25px;
+  color: #5ba257;
+}
+
+.main>.toDoLists>.contents>.toDoList>.delete{
+  position: absolute;
+  top: 10px;
+  right: 10px; 
+  font-size: 25px;
+  color: #fb4040;
+}
+
+
+
+.main>.dashBoard{
+  width: 60%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+
+}
+
+.main>.dashBoard>.dashBoard-bg{
+  width: 90%;
+  background-color: #D9D9D9;
+  height: 800px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities{
+  display: flex;
+  justify-content: space-around;
+  gap: 23px;
+  width: 96%;
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity>.bg-img{
+  width: 105px;
+  height: 105px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35);
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity>.bg-img>img{
+  width: 70px;
+  height: 70px;
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity>.bg-img>.tasks{
+  width: 90px;
+  height: 70px;
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity>.value-button{
+  width: 90px;
+  height: 30px;
+  background-color: #FFD36A;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35);
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity>.color {
+  background-color: #807351;
+}
+
+.main>.dashBoard>.dashBoard-bg>.dashBoard-activities>.dashBoard-activity>p {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.main>.dashBoard>.dashBoard-bg>.time-log{
+  width: 96%;
+  height: 205px;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-header{
+  position: relative;
+  padding: 10px 0px;
+  font-size: 18px;
+  width: 96%;
+  display: flex;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-header>img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-header>p {
+  padding-left: 30px;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records{
+  width: 96%;
+  height: 152px;
+  background-color: #eee;
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  overflow-x: hidden;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table{
+  width: 33.33%;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>header{
+  border-bottom: 2px solid grey;
+  position: relative;
+  padding-left: 10px;
+}
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>header>img{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>header>p{
+  padding-left: 23px;
+}
+
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>.record{
+position: relative;
+margin: 10px;
+
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>.record>img{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>.record>.tasks {
+  width: 23px;
+  height: 20px;
+}
+
+.main>.dashBoard>.dashBoard-bg>.time-log>.time-log-records>.table>.record>p {
+  padding-left: 23px;
+}
+
+
+
+
+.main>.timer{
+  width: 20%;
+  height: 825px;
+  background-color: #232932;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+.main>.timer>.timer-bg{
+  width: 80%;
+  height: 80%;
+  background-color: #c6a75b;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.main>.timer>.timer-bg>.timer-button{
+  width: 80px;
+  height: 35px;
+  background-color: #807351;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 22px;
+  margin-top: 50px;
+}
+
+.main>.timer>.timer-bg>p{
+  font-size: 22px;
+  padding: 15px;
+}
+
+.main>.timer>.timer-bg>h2{
+  font-size: 50px;
+  margin: 80px 0px;
+}
+
+.main>.timer>.timer-bg>button{
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 22px;
+  color: #232932;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
