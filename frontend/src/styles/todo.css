@@ -1,0 +1,36 @@
+@import "Config.css";
+.w-todolist {
+  /* width: var(--widthtodolist) !important ; */
+  flex: 1 1 var(--widthtodolist);
+}
+button {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.c-checkcolor {
+  color: var(--checkcolor);
+}
+.c-cancelcolor {
+  color: var(--cancelcolor);
+}
+
+.bg-buttoncolor {
+  background-color: var(--todoButtonColor);
+}
+
+.bg-Accent {
+  background: var(--bgAccent);
+}
+.bg-todolist {
+  background: var(--bgTodo);
+}
+.bg-idcolor {
+  background-color: var(--bgidcolor);
+}
+
+.h-90vh {
+  height: calc(100vh - 71.29px);
+}

@@ -2,8 +2,7 @@ import Navbarcomponent from "./components/navbar/Navbarcomponent";
 import Todolist from "./components/todolist/todolist";
 import Pomodoro from "./components/pomodoro/pomodoro";
 import CenterContent from "./components/CenterContent/CenterContent";
-import "bootstrap";
-import "./css/App.scss";
+import "./styles/App.css";
 
 function App() {
   return (

@@ -1,0 +1,9 @@
+@import "Config.css";
+.nav {
+  background-color: var(--background);
+  display: flex;
+  color: var(--textcolor);
+  padding: 20px 0px 10px 20px !important;
+  font-family: "Inria Sans", sans-serif;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,23 @@
+@import "Config.css";
+
+.bg-pomodoro {
+  background-color: var(--bgPomodoro) !important;
+}
+.text-pomodoro {
+  color: var(--textPomodoro);
+}
+.border-pomodoro {
+  border-radius: 10px;
+}
+.bg-pomodoroaccent {
+  background-color: var(--bgPomodoroAccent) !important;
+}
+.text-shadow-sm {
+  text-shadow: 2px 2px 4px #00000050;
+}
+.flex-basis-300px {
+  flex-basis: 300px;
+}
+.w-pomodoro {
+  width: var(--widthPomodoro);
+}

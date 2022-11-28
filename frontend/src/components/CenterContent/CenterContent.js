@@ -1,4 +1,4 @@
-import "./CenterContent.scss";
+import "./../../styles/CenterContent.css";
 
 const CenterContent = () => {
   return (

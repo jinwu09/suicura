@@ -1,5 +1,5 @@
 import TodoButton from "./todobutton";
-import "./todo.scss";
+import "./../../styles/todo.css";
 
 const Todolist = () => {
   return (

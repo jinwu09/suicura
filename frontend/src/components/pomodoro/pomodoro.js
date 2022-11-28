@@ -1,4 +1,4 @@
-import "./pomodoro.scss";
+import "./../../styles/pomodoro.css";
 
 const Pomodoro = () => {
   return (
