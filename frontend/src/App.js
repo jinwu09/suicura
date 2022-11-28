@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Navbarcomponent />
-      <div className="d-flex flex-row h-max bg-test">
+      <div className="d-flex flex-row h-max ">
         <Todolist />
         <CenterContent />
         <Pomodoro />

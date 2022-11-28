@@ -5,6 +5,7 @@ $textcolor : #FFD36A;
 $bgAccent:#FFD36A;
 
 // todolist/button design
+$widthtodolist: 200px;
 $bgTodo: #232932;
 $checkcolor: #6abd65;
 $todoButtonColor: #D9D9D9;
@@ -12,6 +13,7 @@ $cancelcolor: #ff4141;
 $bgidcolor: #FFD36A;
 
 // Pomodoro window design
+$widthPomodoro: 300px;
 $bgPomodoro: #232932;
 $bgPomodoroAccent: #FFD36A;
 $textPomodoro:#EEEEEE;
@@ -56,9 +58,7 @@ $textbackground: #3A3F47;
 .h-maxvh{
     height: 100vh;
 }
-.h-90vh{
-    height: 90vh;
-}
+
 
 
 // padding x
@@ -80,6 +80,9 @@ $textbackground: #3A3F47;
 
 .px-10px {
     padding: 0 10px 0 10px;
+}
+.py-10px {
+    padding: 20px 0 20px 0;
 }
 
 // margin x
