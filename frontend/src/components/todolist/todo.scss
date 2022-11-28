@@ -1,0 +1,30 @@
+@import "../../css/Config.scss";
+
+button{
+    border: none;
+    background-color: transparent;
+    margin:0;
+    padding: 0;
+}
+
+.c-checkcolor{
+    color: $checkcolor;
+}
+.c-cancelcolor{
+    color: $cancelcolor;
+}
+
+.bg-buttoncolor{
+    background-color: $todoButtonColor;
+}
+
+.bg-Accent{
+    background: $bgAccent;
+}
+.bg-todolist{
+    background:$bgTodo;
+}
+.bg-idcolor{
+    background-color: $bgidcolor;
+}
+
