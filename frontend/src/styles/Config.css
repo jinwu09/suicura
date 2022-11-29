@@ -1,12 +1,12 @@
-@import "bootstrap";
-
+/* @import "bootstrap"; */
 :root {
   --background: #3a3f47;
   --textcolor: #ffd36a;
   --bgAccent: #ffd36a;
 
   /* todolist/button design */
-  --widthtodolist: 200px;
+  --widthtodolist: 300px;
+  --mb-width-todolist: 200px;
   --bgTodo: #232932;
   --checkcolor: #6abd65;
   --todoButtonColor: #d9d9d9;
@@ -15,90 +15,18 @@
 
   /* Pomodoro window design */
   --widthPomodoro: 300px;
+  --mb-width-Pomodoro: 200px;
   --bgPomodoro: #232932;
   --bgPomodoroAccent: #ffd36a;
   --textPomodoro: #eeeeee;
   --textbackground: #3a3f47;
+
+  /* content/center */
+  --bgcontent: #d9d9d9;
+  --textcontent: #ffd36a;
+  --bgaccentcontent: #ffd36a;
 }
 /* testing purposes */
 .bg-test {
   background-color: #6abd65;
-}
-
-/* text size */
-.t-24px {
-  font-size: 24px;
-}
-
-/* width */
-.w-max {
-  width: 100%;
-}
-
-.w-200px {
-  width: 200px !important;
-}
-.w-300px {
-  width: 300px !important;
-}
-
-.w-max--3px {
-  width: calc(100% - 5px);
-}
-
-.w-5px {
-  width: 12px;
-}
-
-/* height */
-.h-maxp {
-  height: 100%;
-}
-.h-maxvh {
-  height: 100vh;
-}
-
-/* padding x */
-.p-5px {
-  padding: 5px;
-}
-
-.p-3px {
-  padding: 3px;
-}
-
-.p-3px {
-  padding: 3px;
-}
-
-.pl-10px {
-  padding-left: 10px;
-}
-
-.px-10px {
-  padding: 0 10px 0 10px;
-}
-.py-10px {
-  padding: 20px 0 20px 0;
-}
-
-/* margin x */
-.mx-5px {
-  margin: 0 5px 0 5px;
-}
-
-.mx-auto {
-  margin: 0 auto 0 auto;
-}
-
-.m-3px {
-  margin: 3px;
-}
-
-.m-0px {
-  margin: 0;
-}
-
-.my-auto {
-  margin: auto 0 auto 0;
 }

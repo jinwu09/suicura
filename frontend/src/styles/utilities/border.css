@@ -1,0 +1,10 @@
+.border {
+  &-radius {
+    &-15px {
+      border-radius: 15px;
+    }
+  }
+  &-test {
+    border: 1px solid black;
+  }
+}

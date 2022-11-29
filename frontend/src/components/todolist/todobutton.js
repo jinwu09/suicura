@@ -11,10 +11,10 @@ const TodoButton = ({ idnum, todonam, onClickArchive, onClickDelete }) => {
       </div>
       <div className="d-flex ">
         <button>
-          <AiFillCheckCircle className="c-checkcolor t-24px m-0px" />
+          <AiFillCheckCircle className="c-checkcolor text-24px m-0px" />
         </button>
         <button>
-          <AiFillCloseCircle className="c-cancelcolor t-24px m-0px" />
+          <AiFillCloseCircle className="c-cancelcolor text-24px m-0px" />
         </button>
       </div>
     </div>

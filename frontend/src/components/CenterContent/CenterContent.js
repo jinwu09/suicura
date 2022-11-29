@@ -1,11 +1,13 @@
-import "./../../styles/CenterContent.css";
+import Status from "./Status";
 
 const CenterContent = () => {
   return (
-    <div className="w-max d-flex flex-column flex-grow-1 flex-shrink-1">
-      <p>Center Content</p>
-      <p>testing</p>
+    <div>
+      <div className="d-flex flex-column bg-content border-radius-15px w-90p h-98p m-2 p-3">
+        <Status />
+      </div>
     </div>
   );
 };
+
 export default CenterContent;

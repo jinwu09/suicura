@@ -1,0 +1,22 @@
+/* margin x */
+.m {
+  &x-5px {
+    margin: 0 5px 0 5px;
+  }
+
+  &x-auto {
+    margin: 0 auto 0 auto;
+  }
+
+  &-3px {
+    margin: 3px;
+  }
+
+  &-0px {
+    margin: 0;
+  }
+
+  &y-auto {
+    margin: auto 0 auto 0;
+  }
+}

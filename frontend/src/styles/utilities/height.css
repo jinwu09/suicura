@@ -1,0 +1,15 @@
+/* height */
+.h {
+  &-maxp {
+    height: 100%;
+  }
+  &-maxvh {
+    height: 100vh;
+  }
+  &-90p {
+    height: 90%;
+  }
+  &-98p {
+    height: 98%;
+  }
+}

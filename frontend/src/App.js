@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Navbarcomponent />
-      <div className="d-flex flex-row h-max ">
+      <div className="grid grid-todo_auto_pomo grid-todo_auto_pomo-mb h-max ">
         <Todolist />
         <CenterContent />
         <Pomodoro />

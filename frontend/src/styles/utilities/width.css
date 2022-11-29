@@ -1,0 +1,53 @@
+/* width */
+.w {
+  &-pomodoro {
+    @media screen and (min-width: 900px) {
+      width: var(--widthPomodoro) !important;
+    }
+
+    @media screen and (min-width: 300px) {
+      &-mb {
+        width: var(--mb-width-Pomodoro);
+      }
+    }
+  }
+  &-todolist {
+    /* width: var(--widthtodolist) !important ; */
+    flex: 1 1 var(--widthtodolist);
+    @media screen and (min-width: 300px) {
+      &-mb {
+        width: var(--mb-width-todolist);
+      }
+    }
+  }
+  &-maxvh {
+    width: 100vh;
+  }
+  &-maxp {
+    width: 100%;
+  }
+  &-50px {
+    width: 50px;
+  }
+  &-100px {
+    width: 100px;
+  }
+  &-150pxp {
+    width: 150px;
+  }
+  &-200px {
+    width: 200px !important;
+  }
+  &-300px {
+    width: 300px !important;
+  }
+  &-max--3px {
+    width: calc(100% - 5px);
+  }
+  &-5px {
+    width: 12px;
+  }
+  &-90p {
+    height: 90%;
+  }
+}

@@ -1,0 +1,15 @@
+.grid {
+  display: grid;
+  @media screen and (min-width: 300px) {
+    &-todo_auto_pomo-mb {
+      grid-template-columns: var(--mb-width-todolist) auto var(
+          --mb-width-Pomodoro
+        );
+    }
+  }
+  @media screen and (min-width: 800px) {
+    &-todo_auto_pomo {
+      grid-template-columns: var(--widthtodolist) auto var(--widthPomodoro);
+    }
+  }
+}

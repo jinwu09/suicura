@@ -1,8 +1,5 @@
-@import "Config.css";
-.w-todolist {
-  /* width: var(--widthtodolist) !important ; */
-  flex: 1 1 var(--widthtodolist);
-}
+/* @import "Config.css"; */
+
 button {
   border: none;
   background-color: transparent;

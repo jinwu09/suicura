@@ -1,0 +1,21 @@
+/* text size */
+.text {
+  &-24px {
+    font-size: 24px;
+  }
+  &-1rem {
+    font-size: 1rem;
+  }
+  &-2rem {
+    font-size: 2rem;
+  }
+  &-3rem {
+    font-size: 3rem;
+  }
+  &-4rem {
+    font-size: 4rem;
+  }
+  &-5rem {
+    font-size: 5rem;
+  }
+}

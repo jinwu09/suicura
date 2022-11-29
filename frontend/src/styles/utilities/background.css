@@ -1,0 +1,8 @@
+.bg {
+  &-content {
+    background-color: var(--bgcontent);
+  }
+  &-accentcontent {
+    background-color: var(--bgaccentcontent);
+  }
+}
