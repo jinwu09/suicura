@@ -8,8 +8,8 @@
       "server": "localhost",
       "port": 3306,
       "driver": "MySQL",
-      "name": "suicara",
-      "database": "suicara",
+      "name": "suicura",
+      "database": "suicura",
       "username": "root",
       "password": ""
     }
