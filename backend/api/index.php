@@ -11,8 +11,6 @@ require_once "./module/data/Todolist.php";
 $db = new Connection();
 $pdo = $db->connect();
 
-$get = new Get($pdo);
-$post = new Post($pdo);
 $user = new User($pdo);
 $todolist = new Todolist($pdo);
 
@@ -29,15 +27,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case 'test':
                 echo 'test';
                 break;
-            case 'user':
-                if (count($req) > 1) {
-                    echo json_encode($get->get_user($req[1]));
-                    // echo returnData($get->get_user($req[1]));
-                } else {
-                    echo json_encode($get->get_user());
-                    // echo returnData($get->get_user());
-                }
-                break;
+                // case 'user':
+                //     if (count($req) > 1) {
+                //         echo json_encode($get->get_user($req[1]));
+                //         // echo returnData($get->get_user($req[1]));
+                //     } else {
+                //         echo json_encode($get->get_user());
+                //         // echo returnData($get->get_user());
+                //     }
+                //     break;
 
             default:
                 http_response_code(403);
@@ -76,25 +74,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 print_r($data);
                 break;
 
-            case 'student':
-                echo json_encode($post->add_student($data));
-                break;
 
-            case 'adduser':
-                echo json_encode($user->add_users($data));
-                break;
-
-            case 'editstudent':
-                echo json_encode($post->edit_student($data, $req[1]));
-                break;
-
-            case 'deletestudent':
-                echo json_encode($post->delete_student($req[1]));
-                break;
-            case 'test':
-                // echo $user->encrypt_password("Aa123456789");
-                // echo $str;
-                break;
 
             default:
                 http_response_code(403);
@@ -107,9 +87,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $data = json_decode(file_get_contents("php://input"));
 
         switch ($req[0]) {
-            case 'student':
-                break;
-            case 'faculty':
+            case 'sample':
                 break;
             default:
                 http_response_code(403);
