@@ -1,18 +1,19 @@
 <?php
 require_once "./config/Connection.php";
-require_once "./module/Get.php";
-require_once "./module/Post.php";
 require_once "./module/Global.php";
 require_once "./module/Procedural.php";
 
 require_once "./module/data/User.php";
 require_once "./module/data/Todolist.php";
+require_once "./module/data/Team.php";
+
 
 $db = new Connection();
 $pdo = $db->connect();
 
 $user = new User($pdo);
 $todolist = new Todolist($pdo);
+$team = new Team($pdo);
 
 if (isset($_REQUEST['request'])) {
     $req = explode('/', rtrim($_REQUEST['request'], '/'));
@@ -52,6 +53,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     case 'auth':
                         echo json_encode($user->auth($data));
                         break;
+                    case 'team':
+                        echo json_encode($user->teamlist($data));
+                        break;
+                    case 'todolist':
+                        echo json_encode($user->todolist($data));
+                        break;
                     default:
                         http_response_code(403);
                         break;
@@ -62,8 +69,17 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 //     break;
             case 'todolist':
                 switch ($req[1]) {
-                    case 'user':
-                        echo json_encode($todolist->todolist($data));
+
+                    default:
+                        http_response_code(403);
+                        break;
+                }
+                break;
+            case 'team':
+                switch ($req[1]) {
+
+                    case 'todolist':
+                        echo json_encode($team->teamtodolist($data));
                         break;
                     default:
                         http_response_code(403);

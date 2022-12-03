@@ -53,8 +53,8 @@ class User
 
     public function auth($data)
     {
-        $username = $data->username;
-        $password = $data->password;
+        $username = $data->user_name;
+        $password = $data->user_password;
         $sql = "SELECT user_id, user_name, user_password, user_token  FROM users where user_name = ? LIMIT 1 ";
         $stmt = $this->pdo->prepare($sql);
 
@@ -76,7 +76,6 @@ class User
                         "user_name" => $res['user_name'],
                         "token" => $token,
                     );
-
                     return $this->gm->res_payload($data, "success", "Succesfully logged in.", 200);
                 } else {
                     return $this->gm->res_payload(null, "failed", "Incorrect password", 401);
@@ -86,6 +85,39 @@ class User
             }
         } catch (\PDOException $e) {
             return $this->gm->res_payload(null, "failed", "Unable to process data.", 401);
+        }
+    }
+    public function teamlist($data)
+    {
+        try {
+            if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
+                $sql = "SELECT team_id, team_name, team_description, team_created from teams where user_id = ?";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$data->user_id]);
+                $res = $stmt->fetchAll();
+                return $this->gm->res_payload($res, "success", "Sucessfully fetch team.", 200);
+            } else {
+                return $this->gm->res_payload(null, "failed", "expired token", 401);
+            }
+        } catch (\PDOException $th) {
+            return $this->gm->res_payload(null, "failed", "unable to process data", 401);
+        }
+    }
+    public function todolist($data)
+    {
+        try {
+            if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
+                $sql = "SELECT todo_id, todo_name, todo_description, todo_created, todo_status from todolists where user_id = ? and team_id is NULL";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$data->user_id]);
+
+                $res = $stmt->fetchAll();
+                return $this->gm->res_payload($res, "success", "Sucessfully fetch todolist.", 200);
+            } else {
+                return $this->gm->res_payload(null, "failed", "expired token", 401);
+            }
+        } catch (\PDOException $e) {
+            return $this->gm->res_payload(null, "failed", "unable to process date", 401);
         }
     }
 }
