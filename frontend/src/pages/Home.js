@@ -1,9 +1,9 @@
-import Navbarcomponent from "./components/navbar/Navbarcomponent";
-import Todolist from "./components/todolist/todolist";
-import Pomodoro from "./components/pomodoro/pomodoro";
-import CenterContent from "./components/CenterContent/CenterContent";
+import Navbarcomponent from "../components/navbar/Navbarcomponent";
+import Todolist from "../components/todolist/todolist";
+import Pomodoro from "../components/pomodoro/pomodoro";
+import CenterContent from "../components/CenterContent/CenterContent";
 // import Login from "./pages/login";
-import "./styles/App.css";
+import "../styles/App.css";
 
 function App() {
   return (
