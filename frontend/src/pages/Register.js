@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/register.css";
+import React from "react"
+import "../styles/register.css"
 
 class Register extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class Register extends React.Component {
         <div class="register-box">
           <h1>SUICURA</h1>
           <form action="/action_page.php" method="post">
-            <div class="container">
+            <div class="register-container">
               <label for="fname">
                 <b>First Name</b>
               </label>
@@ -63,13 +63,14 @@ class Register extends React.Component {
                 name="psw-1"
                 required
               ></input>
-
-              <button class="cancel" type="submit">
+              <div class='register-buttons'>
+              <button class="cancel">
                 Cancel
               </button>
               <button class="register" type="submit">
                 Register
               </button>
+              </div>
             </div>
           </form>
         </div>
@@ -78,4 +79,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default Register
