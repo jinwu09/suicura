@@ -1,9 +1,17 @@
 <?php
 
+// header("Access-Control-Allow-Origin: *");
+// header("Content-Type: application/json: charset=utf8");
+// header("Access-Control-Allow-Methods: GET, POST, PATCH");
+// header("Access-Control-Allow-Headers: X-Requested-With");
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json: charset=utf8");
-header("Access-Control-Allow-Methods: GET, POST, PATCH");
+header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
+header("Access-Control-Allow-Headers: Content-Type");
 
+// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
 date_default_timezone_set("Asia/Manila");
 set_time_limit(1000);

@@ -113,3 +113,5 @@ INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, 
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
+-- delete todo list
+DELETE from todolist WHERE todo_id = 

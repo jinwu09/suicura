@@ -7,6 +7,10 @@ require_once "./module/data/User.php";
 require_once "./module/data/Todolist.php";
 require_once "./module/data/Team.php";
 
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json: charset=utf8");
+header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
+header("Access-Control-Allow-Headers: Content-Type");
 
 $db = new Connection();
 $pdo = $db->connect();
@@ -51,13 +55,17 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case 'user':
                 switch ($req[1]) {
                     case 'auth':
-                        echo json_encode($user->auth($data));
+                        print_r(getallheaders());
+                        // echo json_encode($user->auth($data));
                         break;
                     case 'team':
                         echo json_encode($user->teamlist($data));
                         break;
                     case 'todolist':
-                        echo json_encode($user->todolist($data));
+                        echo json_encode($user->gettodolist($data));
+                        break;
+                    case 'create_todolist':
+                        echo json_encode($user->createtodolist($data));
                         break;
                     default:
                         http_response_code(403);
@@ -79,7 +87,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 switch ($req[1]) {
 
                     case 'todolist':
-                        echo json_encode($team->teamtodolist($data));
+                        echo json_encode($team->getteamtodolist($data));
+                        break;
+                    case 'logs':
+                        echo json_encode($team->getteam_logs($data));
                         break;
                     default:
                         http_response_code(403);
@@ -89,7 +100,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case 'decrypt':
                 print_r($data);
                 break;
-
+            case 'encrypt':
+                print_r($data);
+                break;
+            case 'test':
+                print_r(getallheaders());
+                break;
 
 
             default:

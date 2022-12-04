@@ -74,7 +74,7 @@ class User
                     $data = array(
                         "user_id" => $res['user_id'],
                         "user_name" => $res['user_name'],
-                        "token" => $token,
+                        "token" => $token
                     );
                     return $this->gm->res_payload($data, "success", "Succesfully logged in.", 200);
                 } else {
@@ -103,13 +103,30 @@ class User
             return $this->gm->res_payload(null, "failed", "unable to process data", 401);
         }
     }
-    public function todolist($data)
+    public function gettodolist($data)
     {
         try {
             if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
                 $sql = "SELECT todo_id, todo_name, todo_description, todo_created, todo_status from todolists where user_id = ? and team_id is NULL";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute([$data->user_id]);
+
+                $res = $stmt->fetchAll();
+                return $this->gm->res_payload($res, "success", "Sucessfully fetch todolist.", 200);
+            } else {
+                return $this->gm->res_payload(null, "failed", "expired token", 401);
+            }
+        } catch (\PDOException $e) {
+            return $this->gm->res_payload(null, "failed", "unable to process date", 401);
+        }
+    }
+    public function createtodolist($data)
+    {
+        try {
+            if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
+                $sql = "INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (?,?,?,?,CURRENT_TIMESTAMP )";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$data->user_id, $data->todo_name, $data->todo_description, $data->todo_status]);
 
                 $res = $stmt->fetchAll();
                 return $this->gm->res_payload($res, "success", "Sucessfully fetch todolist.", 200);
