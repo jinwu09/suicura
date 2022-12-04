@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/login.css'
+import { Link } from 'react-router-dom'
 
 class Login extends React.Component {
   render() {
@@ -33,14 +34,14 @@ class Login extends React.Component {
                   required
                 ></input>
               </div>
-            </div>
-            <div class='buttons'>
-              <button class='login' type='submit'>
-                Login
-              </button>
-              <button class='register' type='submit'>
-                Register
-              </button>
+              <div class='buttons'>
+                <button class='Login' type='submit'>
+                  Login
+                </button>
+                <Link to='/Register'>
+                  <button class='Register'>Register</button>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
