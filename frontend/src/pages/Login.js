@@ -9,7 +9,7 @@ class Login extends React.Component {
         <div class='login-box'>
           <h1>SUICURA</h1>
           <form action='' method='post'>
-            <div class='container'>
+            <div class='login-container'>
               <div class='usernamer'>
                 <label for='uname'>
                   <b>Username</b>
@@ -34,7 +34,7 @@ class Login extends React.Component {
                   required
                 ></input>
               </div>
-              <div class='buttons'>
+              <div class='login-buttons'>
                 <button class='Login' type='submit'>
                   Login
                 </button>
@@ -46,7 +46,7 @@ class Login extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
