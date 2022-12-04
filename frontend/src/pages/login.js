@@ -7,7 +7,7 @@ class Login extends React.Component {
       <div class="body">
         <div class="login-box">
           <h1>SUICURA</h1>
-          <form action="/action_page.php" method="post">
+          <form action="" method="post">
             <div class="container">
               <label for="uname">
                 <b>Username</b>
@@ -32,11 +32,11 @@ class Login extends React.Component {
               <button class="login" type="submit">
                 Login
               </button>
-              <button class="register" type="submit">
-                Register
-              </button>
             </div>
           </form>
+          <button class="register" type="submit">
+            Register
+          </button>
         </div>
       </div>
     );

@@ -27,7 +27,15 @@ CREATE TABLE collabs (
 );
 CREATE TABLE teams (
     team_id INT NOT NULL AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    -- user_id INT NOT NULL,
+    team_name TEXT NOT NULL,
+    team_description TEXT NOT NULL,
+    team_created datetime NOT NULL,
+    PRIMARY KEY (team_id)
+);
+CREATE TABLE team_user (
+    team_user_id INT NOT NULL AUTO_INCREMENT,
+    -- user_id INT NOT NULL,
     team_name TEXT NOT NULL,
     team_description TEXT NOT NULL,
     team_created datetime NOT NULL,
