@@ -1,0 +1,22 @@
+trello todo list
+https://trello.com/b/8xkmrYZE/err-code
+- frontend
+  - login view (done)
+    - design (done)
+    - functionality
+  - dashboard View 
+  - Pomodoro Component
+    - design (done)
+    - functionality
+  - File system component
+    - design (done)
+    - functionality
+  -  
+  - Encryption
+  - Decryption
+- Backend 
+  - Encryption 
+  - Decryption
+  - Login/auth endpoints (done)
+    - token auth endpoint 
+  - Get all todo list endpoint
