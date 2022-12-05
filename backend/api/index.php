@@ -7,10 +7,6 @@ require_once "./module/data/User.php";
 require_once "./module/data/Todolist.php";
 require_once "./module/data/Team.php";
 
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json: charset=utf8");
-header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
-header("Access-Control-Allow-Headers: Content-Type");
 
 $db = new Connection();
 $pdo = $db->connect();
@@ -25,6 +21,10 @@ if (isset($_REQUEST['request'])) {
     http_response_code(404);
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('HTTP/1.1 200 OK');
+    exit();
+}
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -55,17 +55,29 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case 'user':
                 switch ($req[1]) {
                     case 'auth':
-                        print_r(getallheaders());
-                        // echo json_encode($user->auth($data));
+                        echo json_encode($user->auth($data));
                         break;
                     case 'team':
                         echo json_encode($user->teamlist($data));
                         break;
                     case 'todolist':
-                        echo json_encode($user->gettodolist($data));
+                        switch ($req[2]) {
+                            case 'get':
+                                echo json_encode($user->gettodolist($data));
+                                break;
+                            case 'create':
+                                echo json_encode($user->createtodolist($data));
+                                break;
+                            case 'archive':
+                                echo json_encode($user->archivetodolist($data));
+                                break;
+                            case 'delete':
+                                echo json_encode($user->deletetodolist($data));
+                                break;
+                        }
                         break;
-                    case 'create_todolist':
-                        echo json_encode($user->createtodolist($data));
+                    case 'register':
+                        echo json_encode($user->add_users($data));
                         break;
                     default:
                         http_response_code(403);

@@ -2,6 +2,8 @@
 create table users (
     user_id INT AUTO_INCREMENT NOT null,
     user_name text NOT null,
+    user_first_name text not NULL, 
+    user_last_name text not NULL,
     user_password text NOT null,
     user_token text,
     PRIMARY KEY(user_id)
@@ -16,6 +18,7 @@ CREATE TABLE todolists (
     -- 0 is active
     -- 1 is archive
     todo_status TINYINT NOT NULL,
+    todo_archived datetime ,
     PRIMARY KEY (todo_id)
 );
 CREATE TABLE collabs (
@@ -39,7 +42,7 @@ CREATE TABLE team_user (
     team_name TEXT NOT NULL,
     team_description TEXT NOT NULL,
     team_created datetime NOT NULL,
-    PRIMARY KEY (team_id)
+    PRIMARY KEY (team_user_id)
 );
 CREATE TABLE team_logs(
     team_log_id INT NOT NULL AUTO_INCREMENT,
@@ -58,15 +61,15 @@ CREATE TABLE team_logs(
 --@block
 show tables
 --@block
-drop table users, todolists, collabs, teams, team_logs
+drop table users, todolists, collabs, teams, team_user, team_logs
 --@block 
-INSERT INTO users (user_name, user_password) VALUES ("albert", "password" );
-INSERT INTO users (user_name, user_password) VALUES ("albert2", "password2" );
-INSERT INTO users (user_name, user_password) VALUES ("albert3", "password3" );
-INSERT INTO users (user_name, user_password) VALUES ("albert4", "password4" );
-INSERT INTO users (user_name, user_password) VALUES ("albert5", "password5" );
-INSERT INTO users (user_name, user_password) VALUES ("albert6", "password6" );
-INSERT INTO users (user_name, user_password) VALUES ("albert7", "password7" );
+INSERT INTO users (user_name, user_password ,user_first_name, user_last_name) VALUES ("albert", "password" ,"Albert","santos" );
+INSERT INTO users (user_name, user_password ,user_token) VALUES ("albert2", "password2" ,"9b0be121275953afec7ace117d94d7b093eb771f2ce220ca06f9301ef9c8fb4dc988fcfb6f19ebd00252822a80322185743b");
+INSERT INTO users (user_name, user_password ,user_first_name, user_last_name) VALUES ("albert3", "password3","Albert","santos" );
+INSERT INTO users (user_name, user_password ,user_first_name, user_last_name) VALUES ("albert4", "password4","Albert","santos" );
+INSERT INTO users (user_name, user_password ,user_first_name, user_last_name) VALUES ("albert5", "password5","Albert","santos" );
+INSERT INTO users (user_name, user_password ,user_first_name, user_last_name) VALUES ("albert6", "password6","Albert","santos" );
+INSERT INTO users (user_name, user_password ,user_first_name, user_last_name) VALUES ("albert7", "password7","Albert","santos" );
 -- put data in todolists for user 1
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (1, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (1, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
@@ -94,17 +97,17 @@ INSERT INTO todolists (user_id, team_id ,todo_name, todo_description, todo_statu
 INSERT INTO todolists (user_id, team_id ,todo_name, todo_description, todo_status, todo_created) VALUES (2, 2,"todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 INSERT INTO todolists (user_id, team_id ,todo_name, todo_description, todo_status, todo_created) VALUES (2, 2,"todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 -- put data in teams
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (1, "team sample", "team description sample", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (1, "team sample", "team description sample", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (1, "team sample", "team description sample", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (1, "team sample", "team description sample", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (1, "team sample", "team description sample", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (1, "team sample", "team description sample", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (2, "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (2, "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (2, "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (2, "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
-INSERT INTO teams (user_id, team_name, team_description, team_created) VALUES (2, "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample", "team description sample", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample", "team description sample", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample", "team description sample", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample", "team description sample", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample", "team description sample", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample", "team description sample", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
+INSERT INTO teams ( team_name, team_description, team_created) VALUES ( "team sample 2", "team description sample 2", CURRENT_TIMESTAMP);
 -- team logs
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
@@ -114,4 +117,3 @@ INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, 
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
 INSERT INTO team_logs (team_id, user_id, log, log_type, log_date) VALUES (2, 2, "log sample",0, CURRENT_TIMESTAMP);
 -- delete todo list
-DELETE from todolist WHERE todo_id = 
