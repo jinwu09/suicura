@@ -21,6 +21,10 @@ if (isset($_REQUEST['request'])) {
     http_response_code(404);
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('HTTP/1.1 200 OK');
+    exit();
+}
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -57,7 +61,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
                         echo json_encode($user->teamlist($data));
                         break;
                     case 'todolist':
-                        echo json_encode($user->todolist($data));
+                        switch ($req[2]) {
+                            case 'get':
+                                echo json_encode($user->gettodolist($data));
+                                break;
+                            case 'create':
+                                echo json_encode($user->createtodolist($data));
+                                break;
+                            case 'archive':
+                                echo json_encode($user->archivetodolist($data));
+                                break;
+                            case 'delete':
+                                echo json_encode($user->deletetodolist($data));
+                                break;
+                        }
+                        break;
+                    case 'register':
+                        echo json_encode($user->add_users($data));
                         break;
                     default:
                         http_response_code(403);
@@ -79,7 +99,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 switch ($req[1]) {
 
                     case 'todolist':
-                        echo json_encode($team->teamtodolist($data));
+                        echo json_encode($team->getteamtodolist($data));
+                        break;
+                    case 'logs':
+                        echo json_encode($team->getteam_logs($data));
                         break;
                     default:
                         http_response_code(403);
@@ -89,7 +112,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case 'decrypt':
                 print_r($data);
                 break;
-
+            case 'encrypt':
+                print_r($data);
+                break;
+            case 'test':
+                print_r(getallheaders());
+                break;
 
 
             default:
