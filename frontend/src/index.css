@@ -29,10 +29,17 @@
 }/* @import "Config.css"; */.nav {
   background-color: var(--background);
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: var(--textcolor);
-  padding: 20px 0px 10px 20px !important;
+  padding: 20px 25px 10px 20px !important;
   font-family: "Inria Sans", sans-serif;
   letter-spacing: 1px;
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.30);
+  z-index: 1;
+}.nav button {
+  color: #ffffff;
+  font-size: 22px;
 }/* @import "Config.css"; */.bg-pomodoro {
   background-color: var(--bgPomodoro) !important;
 }.text-pomodoro {
@@ -42,7 +49,7 @@
 }.bg-pomodoroaccent {
   background-color: var(--bgPomodoroAccent) !important;
 }.text-shadow-sm {
-  text-shadow: 2px 2px 4px #00000050;
+  text-shadow: 1px 2px 2px #00000050;
 }.flex-basis-300px {
   flex-basis: var(--widthPomodoro);
 }/* @import "Config.css"; */button {
@@ -64,35 +71,32 @@
   background-color: var(--bgidcolor);
 }.height {
   height: 450px;
-}.team {
-  background-color: #232932;
-  color: white;
-  height: 300px;
-}.team .team-header {
-  color: #232932;
-  background-color: #ffd36a;
-  height: 40px;
+}.todo-input {
+  width: 100%;
+  padding-left: 5px;
+  font-size: 14px;
+}.todo-input > button {
+  background-color: var(--bgaccentcontent);
+  border-radius: 5px;
+  cursor: pointer;
+}.status-button {
   display: flex;
   justify-content: center;
-  align-items: center;
-}.team-name {
-  background-color: #68b963;
-  height: 40px;
+  gap: 10px;
+}.status-button > button {
+  margin: 5px 0 5px;
+  border-radius: 5px;
+}.tasks {
+  background-color: var(--todoButtonColor);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0px 10px;
-}.online {
+  padding: 5px;
+}.number {
   display: flex;
-  gap: 5px;
-}.team-members {
-}.member {
-  background-color: #d9d9d9;
-  padding-left: 10px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px 8px 12px -6px rgba(0,0,0,0.75);
+  align-self: center;
+  background-color: var(--bgidcolor);
+  padding: 0 5px;
+  font-weight: bold;
 }/* @import "Nav.css"; */body {
   margin: 0px;
 }/* @import "Config.css"; */.flex-grow-100 {
