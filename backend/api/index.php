@@ -35,10 +35,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 // case 'user':
                 //     if (count($req) > 1) {
                 //         echo json_encode($get->get_user($req[1]));
-                //         // echo returnData($get->get_user($req[1]));
+                //         // echo encrypt($get->get_user($req[1]));
                 //     } else {
                 //         echo json_encode($get->get_user());
-                //         // echo returnData($get->get_user());
+                //         // echo encrypt($get->get_user());
                 //     }
                 //     break;
 
@@ -50,7 +50,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     case 'POST':
         $data = json_decode(file_get_contents("php://input"));
-        // $data = receiveData(file_get_contents("php://input"));
+        // $data = decrypt(file_get_contents("php://input"));
         switch ($req[0]) {
             case 'user':
                 switch ($req[1]) {
@@ -65,10 +65,16 @@ switch ($_SERVER['REQUEST_METHOD']) {
                             case 'get':
                                 echo json_encode($user->gettodolist($data));
                                 break;
+                            case 'archive':
+                                echo json_encode($user->getarhivetodolist($data));
+                                break;
+                            case 'ongoing':
+                                echo json_encode($user->getongoingtodolist($data));
+                                break;
                             case 'create':
                                 echo json_encode($user->createtodolist($data));
                                 break;
-                            case 'archive':
+                            case 'setarchive':
                                 echo json_encode($user->archivetodolist($data));
                                 break;
                             case 'delete':
@@ -110,10 +116,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 }
                 break;
             case 'decrypt':
-                print_r($data);
+                echo decrypt(json_encode($data));
+                // print_r($data);
                 break;
             case 'encrypt':
-                print_r($data);
+                // echo json_encode(array("m" => base64_encode(
+                //     json_encode($data)
+                // )));
+                echo encrypt(json_encode($data));
                 break;
             case 'test':
                 print_r(getallheaders());

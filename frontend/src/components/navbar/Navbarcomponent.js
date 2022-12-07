@@ -2,7 +2,7 @@
 
 const Navbarcomponent = () => {
   return (
-    <div className="nav">
+    <div className="nav flex-grow-0 flex-shrink-1 flex-basis-auto">
       <h3>
         <b>
           <i>SUICARA</i>

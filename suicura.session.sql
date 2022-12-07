@@ -90,6 +90,19 @@ INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_c
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (2, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (2, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (2, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+--@block
+-- put data in todolist for user 13
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+--@block
+
 -- for team todolist
 INSERT INTO todolists (user_id, team_id ,todo_name, todo_description, todo_status, todo_created) VALUES (2, 1,"todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 INSERT INTO todolists (user_id, team_id ,todo_name, todo_description, todo_status, todo_created) VALUES (2, 1,"todo sample","todo desription", 0, CURRENT_TIMESTAMP );

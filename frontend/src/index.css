@@ -9007,7 +9007,11 @@ select {
     height: 90%;
   }.h-98p {
     height: 98%;
-  }/* text size */.text-24px {
+  }.h-90vh {
+    height: 90vh;
+  }.flex-basis-auto {
+  flex-basis: auto;
+}/* text size */.text-24px {
     font-size: 24px;
   }.text-1rem {
     font-size: 1rem;

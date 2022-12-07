@@ -12,4 +12,10 @@
   &-98p {
     height: 98%;
   }
+  &-90vh {
+    height: 90vh;
+  }
+}
+.flex-basis-auto {
+  flex-basis: auto;
 }

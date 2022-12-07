@@ -1,31 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/login.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Baseurl from "../API/Config";
-
-const postLogin = (user_name, user_password) => {
-  axios
-    .post(Baseurl + "user/auth", {
-      user_name,
-      user_password,
-    })
-    .then((res) => {
-      console.log(res.data.payload);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-};
+import axios from "axios";
+import { Baseurl } from "../API/Config";
+import { data_decrypt, data_encrpyt } from "../API/crypto";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const PostLogin = (user_name, user_password) => {
+    axios
+      .post(Baseurl + "user/auth", {
+        user_name,
+        user_password,
+      })
+      .then((res) => {
+        console.log(res.data.payload);
+        navigate("/home");
+        localStorage.setItem("m", JSON.stringify(res.data.payload));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <div className="body">
       <div className="login-box">
         <h1>SUICURA</h1>
-        <form action="" method="post">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            PostLogin(username, password);
+          }}
+        >
           <div className="container">
             <div className="usernamer">
               <label>
@@ -54,15 +63,7 @@ const Login = () => {
               ></input>
             </div>
             <div className="buttons">
-              <button
-                className="Login"
-                onClick={(e) => {
-                  e.preventDefault();
-                  postLogin(username, password);
-                }}
-              >
-                Login
-              </button>
+              <button className="Login">Login</button>
               <Link to="/Register">
                 <button className="Register">Register</button>
               </Link>

@@ -1,82 +1,119 @@
-import React from "react"
-import "../styles/register.css"
+import React from "react";
+import "../styles/register.css";
+import axios from "axios";
+import { Baseurl } from "../API/Config";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-class Register extends React.Component {
-  render() {
-    return (
-      <div class="body">
-        <div class="register-box">
-          <h1>SUICURA</h1>
-          <form action="/action_page.php" method="post">
-            <div class="register-container">
-              <label for="fname">
-                <b>First Name</b>
-              </label>
-              <input
-                class="container-input"
-                type="text"
-                placeholder="First Name"
-                name="fname"
-                required
-              ></input>
+const Register = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  let navigate = useNavigate();
+  const registerAPI = (
+    user_name,
+    user_password,
+    user_first_name,
+    user_last_name
+  ) => {
+    // console.log(Baseurl);
+    axios
+      .post(Baseurl + "user/register", {
+        user_name,
+        user_password,
+        user_first_name,
+        user_last_name,
+      })
+      .then((res) => {
+        // console.log(res);
+        navigate("/");
+      })
+      .catch((e) => {
+        // console.log(e);
+      });
+  };
+  return (
+    <div className="body">
+      <div className="register-box">
+        <h1>SUICURA</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            registerAPI(username, password, firstName, lastName);
+          }}
+        >
+          <div className="register-container">
+            <label>
+              <b>First Name</b>
+            </label>
+            <input
+              className="container-input"
+              type="text"
+              placeholder="First Name"
+              name="fname"
+              required
+              onChange={(e) => setFirstName(e.target.value)}
+            ></input>
 
-              <label for="lname">
-                <b>Last Name</b>
-              </label>
-              <input
-                class="container-input"
-                type="text"
-                placeholder="Last Name"
-                name="fname"
-                required
-              ></input>
+            <label>
+              <b>Last Name</b>
+            </label>
+            <input
+              className="container-input"
+              type="text"
+              placeholder="Last Name"
+              name="fname"
+              required
+              onChange={(e) => setLastName(e.target.value)}
+            ></input>
 
-              <label for="uname">
-                <b>Username</b>
-              </label>
-              <input
-                class="container-input"
-                type="text"
-                placeholder="Enter Username"
-                name="uname"
-                required
-              ></input>
+            <label>
+              <b>Username</b>
+            </label>
+            <input
+              className="container-input"
+              type="text"
+              placeholder="Enter Username"
+              name="uname"
+              required
+              onChange={(e) => setUsername(e.target.value)}
+            ></input>
 
-              <label for="psw">
-                <b>Password</b>
-              </label>
-              <input
-                class="container-input"
-                type="password"
-                placeholder="Enter Password"
-                name="psw"
-                required
-              ></input>
+            <label>
+              <b>Password</b>
+            </label>
+            <input
+              className="container-input"
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
 
-              <label for="psw-1">
-                <b>Confirm Password</b>
-              </label>
-              <input
-                class="container-input"
-                type="password"
-                placeholder="Confirm Password"
-                name="psw-1"
-                required
-              ></input>
-              <div class='register-buttons'>
-              <button class="cancel">
-                Cancel
-              </button>
-              <button class="register" type="submit">
-                Register
-              </button>
-              </div>
+            <label>
+              <b>Confirm Password</b>
+            </label>
+            <input
+              className="container-input"
+              type="password"
+              placeholder="Confirm Password"
+              name="psw-1"
+              required
+            ></input>
+            <div className="register-buttons">
+              <Link to="/">
+                <button className="cancel">Cancel</button>
+              </Link>
+
+              <button className="register">Register</button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Register
+export default Register;
