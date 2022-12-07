@@ -8,6 +8,12 @@ create table users (
     user_token text,
     PRIMARY KEY(user_id)
 );
+CREATE table userlog(
+    user_log_id INT AUTO_INCREMENT NOT null,
+    user_logedin datetime NOT NULL,
+    user_logedout datetime, 
+    PRIMARY KEY(user_log_id)
+)
 CREATE TABLE todolists (
     todo_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
