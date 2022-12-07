@@ -5,8 +5,21 @@ import CenterContent from "../components/CenterContent/CenterContent";
 // import Login from "./pages/login";
 // import '../styles/App.css'
 import { useState } from "react";
+import { createContext } from "react";
+
+export const HomeContext = createContext();
+
+function VariableCenter({children}) {
+  const [toDoFocus, setToDoFocus] = useState("hello");
+  return (
+    <HomeContext.Provider value="sample">
+      {children}
+    </HomeContext.Provider>
+  );
+}
 
 function App() {
+
   return (
     <div className="App d-flex flex-column h-maxvh ">
       <Navbarcomponent />
