@@ -24,6 +24,7 @@ button {
 .bg-todolist {
   background: var(--bgTodo);
 }
+
 .bg-idcolor {
   background-color: var(--bgidcolor);
 }
@@ -32,43 +33,41 @@ button {
   height: 450px;
 }
 
-.team {
-  background-color: #232932;
-  color: white;
-  height: 300px;
+.todo-input {
+  width: 100%;
+  padding-left: 5px;
+  font-size: 14px;
 }
 
-.team .team-header {
-  color: #232932;
-  background-color: #ffd36a;
-  height: 40px;
+
+.todo-input > button {
+  background-color: var(--bgaccentcontent);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.status-button {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 10px;
 }
 
-.team-name {
-  background-color: #68b963;
-  height: 40px;
+.status-button > button {
+  margin: 5px 0 5px;
+  border-radius: 5px;
+}
+
+.tasks {
+  background-color: var(--todoButtonColor);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0px 10px;
+  padding: 5px;
 }
 
-.online {
+.number {
   display: flex;
-  gap: 5px;
-} 
-
-.team-members {
-}
-
-.member {
-  background-color: #d9d9d9;
-  padding-left: 10px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px 8px 12px -6px rgba(0,0,0,0.75);
+  align-self: center;
+  background-color: var(--bgidcolor);
+  padding: 0 5px;
+  font-weight: bold;
 }
