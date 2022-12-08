@@ -4,9 +4,9 @@ import { createContext } from "react";
 export const HomeContext = createContext(null);
 
 export function HomeProvider({ children }) {
-  const [toDoFocus, setToDoFocus] = useState("hello");
+  const [todonam, setToDoNam] = useState("hello");
   return (
-    <HomeContext.Provider value={{ toDoFocus, setToDoFocus }}>
+    <HomeContext.Provider value={{ todonam, setToDoNam }}>
       {children}
     </HomeContext.Provider>
   );
