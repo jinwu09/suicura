@@ -13,7 +13,8 @@ const CenterContent = () => {
   );
 };
 const Todoexpand = () => {
-  const { tododetail, settododetail } = useHomeContext();
+  const { tododetail, settododetail, onsettask, getlist, liststatus } =
+    useHomeContext();
   return (
     <div>
       <div className="d-flex justify-content-between">
@@ -31,15 +32,15 @@ const Todoexpand = () => {
         type="text"
         value={tododetail.todo_name}
         onChange={(e) => {
-          let newArr = tododetail;
-          newArr.todo_name = e.target.value;
-          settododetail(newArr);
-
-          // settododetail(() => {
           // let newArr = tododetail;
           // newArr.todo_name = e.target.value;
           // settododetail(newArr);
-          // });
+
+          settododetail(() => {
+            let newArr = tododetail;
+            newArr.todo_name = e.target.value;
+            settododetail(newArr);
+          });
 
           // settododetail_name(e.target.value);
           console.log(tododetail);
@@ -48,16 +49,31 @@ const Todoexpand = () => {
       <h3>Description</h3>
       <textarea
         type="text"
-        value={tododetail.description}
+        value={tododetail.todo_description}
         className="w-maxp h-75"
         onChange={(e) => {
-          let newArr = tododetail;
-          newArr.todo_description = e.target.value;
-          settododetail(newArr);
+          // let newArr = tododetail;
+          // newArr.todo_description = e.target.value;
+          // settododetail(newArr);
+
+          settododetail(() => {
+            let newArr = tododetail;
+            newArr.todo_description = e.target.value;
+            settododetail(newArr);
+          });
           console.log(tododetail);
         }}
       />
-      <button className="bg-Accent p-2 rounded-3">Update</button>
+      <button
+        className="bg-Accent p-2 rounded-3"
+        onClick={() => {
+          onsettask(tododetail.todo_id);
+          getlist(liststatus);
+          getlist(liststatus);
+        }}
+      >
+        Update
+      </button>
     </div>
   );
 };

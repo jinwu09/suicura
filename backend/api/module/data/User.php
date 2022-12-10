@@ -138,7 +138,7 @@ class User
                 $stmt->execute([$data->user_id, $todo_id]);
 
                 $res = $stmt->fetchAll()[0];
-                $res['todo_created'] = str_replace('-', '.', $res['todo_created']);
+                // $res['todo_created'] = str_replace('-', '.', $res['todo_created']);
                 return $this->gm->res_payload($res, "success", "Sucessfully fetch specific todolist.", 200);
             } else {
                 return $this->gm->res_payload(null, "failed", "expired token", 401);
@@ -152,9 +152,9 @@ class User
         $todo_id = $data->todo_id;
         try {
             if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
-                $sql = "UPDATE todolists SET todo_description =? where user_id = ? and team_id is NULL and todo_id=?";
+                $sql = "UPDATE todolists SET todo_description =?, todo_name=? where user_id = ? and team_id is NULL and todo_id=?";
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->execute([$data->todo_description, $data->user_id, $todo_id]);
+                $stmt->execute([$data->todo_description, $data->todo_name, $data->user_id, $todo_id]);
 
                 $res = $stmt->fetchAll();
                 return $this->gm->res_payload($res, "success", "Sucessfully Update specific todolist.", 200);
