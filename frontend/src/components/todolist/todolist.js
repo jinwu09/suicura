@@ -110,7 +110,8 @@ const Todolist = () => {
           </div>
           <button
             className={
-              "  m-1 rounded-1  " + (isdashboard ? "bg-active" : "bg-Accent")
+              "  m-1 rounded-1 transition-all  " +
+              (isdashboard ? "bg-active" : "bg-Accent")
             }
             onClick={() => {
               setisdashboard(true);

@@ -1,4 +1,5 @@
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+import { IoFlask } from "react-icons/io5";
 import { useHomeContext } from "../context/useHomeContext";
 
 const TodoButton = ({
@@ -8,10 +9,15 @@ const TodoButton = ({
   onClickArchive,
   onClickDelete,
 }) => {
-  const { ongettask, setisdashboard } = useHomeContext();
+  const { ongettask, tododetail, setisdashboard } = useHomeContext();
   return (
-    <div className="tasks">
-      <div className="d-flex gap-1">
+    <div
+      className={
+        "tasks border-3px transition-all  " +
+        (tododetail.todo_id === todo_id ? " border-accent" : " border-base")
+      }
+    >
+      <div className="d-flex gap-1 ">
         <div className="number">
           <p className="text-center my-auto"> {idnum}</p>
         </div>
