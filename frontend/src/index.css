@@ -9043,6 +9043,8 @@ select {
     background-color: var(--bgcontent);
   }.bg-accentcontent {
     background-color: var(--bgaccentcontent);
+  }.bg-active {
+    background-color: #ffc235;
   }.text-content {
     color: var(--textcontent);
   }.border-radius-15px {
