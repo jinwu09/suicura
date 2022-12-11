@@ -7,4 +7,26 @@
   &-test {
     border: 1px solid black;
   }
+  &-accent {
+    border-color: #ffd36a;
+  }
+  &-base {
+    border-color: #d9d9d9;
+  }
+  &-1px {
+    border-width: 1px;
+    border-style: solid;
+  }
+  &-2px {
+    border-width: 2px;
+    border-style: solid;
+  }
+  &-3px {
+    border-width: 3px;
+    border-style: solid;
+  }
+  &-4px {
+    border-width: 4px;
+    border-style: solid;
+  }
 }
