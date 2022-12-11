@@ -128,6 +128,43 @@ class User
             return $this->gm->res_payload(null, "failed", "unable to process date", 401);
         }
     }
+    public function gettask($data)
+    {
+        $todo_id = $data->todo_id;
+        try {
+            if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
+                $sql = "SELECT todo_id, todo_name, todo_description, todo_created, todo_archived, todo_status from todolists where user_id = ? and team_id is NULL and todo_id=?";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$data->user_id, $todo_id]);
+
+                $res = $stmt->fetchAll()[0];
+                // $res['todo_created'] = str_replace('-', '.', $res['todo_created']);
+                return $this->gm->res_payload($res, "success", "Sucessfully fetch specific todolist.", 200);
+            } else {
+                return $this->gm->res_payload(null, "failed", "expired token", 401);
+            }
+        } catch (\PDOException $e) {
+            return $this->gm->res_payload(null, "failed", "unable to process date", 401);
+        }
+    }
+    public function settask($data)
+    {
+        $todo_id = $data->todo_id;
+        try {
+            if ($this->gm->tokencheck($data->user_id, $data->user_token)) {
+                $sql = "UPDATE todolists SET todo_description =?, todo_name=? where user_id = ? and team_id is NULL and todo_id=?";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$data->todo_description, $data->todo_name, $data->user_id, $todo_id]);
+
+                $res = $stmt->fetchAll();
+                return $this->gm->res_payload($res, "success", "Sucessfully Update specific todolist.", 200);
+            } else {
+                return $this->gm->res_payload(null, "failed", "expired token", 401);
+            }
+        } catch (\PDOException $e) {
+            return $this->gm->res_payload(null, "failed", "unable to process date", 401);
+        }
+    }
     public function getarhivetodolist($data)
     {
         try {
