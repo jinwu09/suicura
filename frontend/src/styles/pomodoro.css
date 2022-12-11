@@ -18,6 +18,3 @@
 .flex-basis-300px {
   flex-basis: var(--widthPomodoro);
 }
-.transition-all {
-  transition: all 0.5s;
-}
