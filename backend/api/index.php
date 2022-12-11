@@ -65,20 +65,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
                             case 'get':
                                 echo json_encode($user->gettodolist($data));
                                 break;
-                            case 'specific':
-                                switch ($req[3]) {
-                                    case 'task':
-                                        echo json_encode($user->gettask($data));
-                                        break;
-                                    case 'settask':
-                                        echo json_encode($user->settask($data));
-                                        break;
-                                    default:
-                                        http_response_code(403);
-                                        break;
-                                }
-                                break;
-
                             case 'archive':
                                 echo json_encode($user->getarhivetodolist($data));
                                 break;
@@ -93,9 +79,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
                                 break;
                             case 'delete':
                                 echo json_encode($user->deletetodolist($data));
-                                break;
-                            default:
-                                http_response_code(403);
                                 break;
                         }
                         break;

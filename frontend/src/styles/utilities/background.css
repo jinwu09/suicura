@@ -5,7 +5,4 @@
   &-accentcontent {
     background-color: var(--bgaccentcontent);
   }
-  &-active {
-    background-color: #ffc235;
-  }
 }
