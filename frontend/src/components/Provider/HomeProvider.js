@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
-import { gettask, settask } from "../../API/API_Method";
+import {
+  gettask,
+  settask,
+  loging,
+  sessionin,
+  getstatus,
+  sessionout,
+} from "../../API/API_Method";
+import moment from "moment";
 import axios from "axios";
 import { Baseurl } from "../../API/Config";
 
 export const HomeContext = createContext(null);
 
 export function HomeProvider({ children }) {
+  const [user_session_id, setuser_session_id] = useState();
+  const onsessionin = () => {
+    const m = JSON.parse(localStorage.getItem("m"));
+    const user_id = m.user_id;
+    const user_token = m.token;
+    sessionin(user_id, user_token, setuser_session_id);
+  };
+  const onsessionout = () => {
+    const m = JSON.parse(localStorage.getItem("m"));
+    const user_id = m.user_id;
+    const user_token = m.token;
+    sessionout(user_id, user_token, user_session_id);
+  };
   const [liststatus, setlistatus] = useState(0);
   const [tododetail, settododetail] = useState({
     todo_archived: null,
@@ -40,6 +61,50 @@ export function HomeProvider({ children }) {
     newArr.todo_name = name;
     settododetail(newArr);
   };
+  const onloging = async (status) => {
+    const m = JSON.parse(localStorage.getItem("m"));
+    const user_id = m.user_id;
+    const user_token = m.token;
+    await loging(user_id, user_token, status);
+  };
+
+  // chart js
+  const [chartData, setChartData] = useState({
+    labels: ["Albert", "Cielo", "Hancelet", "Heart", "Jomar"],
+    datasets: [
+      {
+        label: ["Finish"],
+        data: [80, 75, 60, 70, 60],
+        backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+      },
+      {
+        label: ["Unfinished"],
+        data: [20, 25, 40, 30, 40],
+        backgroundColor: ["rgba(75, 192, 192, 0.2)"],
+      },
+    ],
+  });
+  const [user_status, setuser_status] = useState({});
+  const ongetstatus = () => {
+    const m = JSON.parse(localStorage.getItem("m"));
+    const user_id = m.user_id;
+    const user_token = m.token;
+
+    getstatus(user_id, user_token, setChartData, setuser_status);
+  };
+
+  const [chartOptions, setChartOptions] = useState({
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Project Chart",
+      },
+    },
+  });
 
   // migrated from todolist.js
   const [todolist, settodolist] = useState([
@@ -155,6 +220,13 @@ export function HomeProvider({ children }) {
         onsettask,
         liststatus,
         setlistatus,
+        chartData,
+        chartOptions,
+        onloging,
+        onsessionin,
+        onsessionout,
+        ongetstatus,
+        user_status,
       }}
     >
       {children}

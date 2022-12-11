@@ -17,12 +17,12 @@ const Todoexpand = () => {
   const { tododetail, settododetail, onsettask, getlist, liststatus } =
     useHomeContext();
   return (
-    <div class="box">
+    <div className="box">
       <div className="d-flex justify-content-between">
-        <h2 class="title">Task Name</h2>
+        <h2 className="title">Task Name</h2>
         <div className="d-flex gap-3 ">
-          <p class="datecreated1">Date created:</p>
-          <p class="datecreated2">
+          <p className="datecreated1">Date created:</p>
+          <p className="datecreated2">
             {moment(String([tododetail.todo_created])).format(
               "dddd, MMMM Do YYYY"
             )}
@@ -30,7 +30,7 @@ const Todoexpand = () => {
         </div>
       </div>
       <input
-        class="text-css1"
+        className="text-css1"
         type="text"
         value={tododetail.todo_name}
         onChange={(e) => {
@@ -48,8 +48,8 @@ const Todoexpand = () => {
           console.log(tododetail);
         }}
       />
-      <h3 class="desc">Description</h3>
-      <div class="text-css2">
+      <h3 className="desc">Description</h3>
+      <div className="text-css2">
         <textarea
           type="text"
           value={tododetail.todo_description}
