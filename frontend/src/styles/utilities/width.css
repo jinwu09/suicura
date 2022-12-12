@@ -20,6 +20,18 @@
       }
     }
   }
+  &-1rem {
+    width: 1rem;
+  }
+  &-2rem {
+    width: 2rem;
+  }
+  &-3rem {
+    width: 3rem;
+  }
+  &-4rem {
+    width: 4rem;
+  }
   &-maxvh {
     width: 100vh;
   }
