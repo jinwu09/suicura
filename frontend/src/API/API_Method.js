@@ -119,7 +119,7 @@ export const getstatus = (
           {
             label: "Finish",
             data: payload.data,
-            backgroundColor: ["rgba(75, 192, 192, 0.2)"],
+            backgroundColor: ["#ffd36a"],
           },
         ],
       });

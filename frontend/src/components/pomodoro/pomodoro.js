@@ -27,58 +27,73 @@ const Pomodoro = () => {
     return String(time).padStart(2, "0");
   };
 
+  const [iscustom, setiscustom] = useState(false);
+
   return (
     <div className=" bg-pomodoro">
       <div className="pomodoro">
         <div className="d-flex gap-2 flex-column">
-          <button className="text-pomodoro text-shadow-sm text-2rem">
+          <button className="text-pomodoro text-shadow-sm text-2rem transition-all">
             Timer
           </button>
+          {iscustom ? (
+            <form
+              className="d-flex flex-row gap-1"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const time = new Date();
+                time.setMinutes(time.getMinutes() + inputtimemin * 1);
+                time.setSeconds(time.getSeconds() + inputtimesec * 1);
+                restart(time);
+              }}
+            >
+              <input
+                className="w-4rem"
+                type="number"
+                min={0}
+                // max={60}
+                value={inputtimemin}
+                onChange={(e) => {
+                  setinputtimemin(e.target.value);
+                }}
+                placeholder="Min"
+              />
+              <input
+                className="w-4rem"
+                type="number"
+                value={inputtimesec}
+                min={0}
+                max={60}
+                onChange={(e) => {
+                  setinputtimesec(e.target.value);
+                }}
+                placeholder="Sec"
+              />
+              <button className="px-10px bg-active rounded-1 ">set</button>
+              <button
+                className="p-1  bg-active rounded-1"
+                onClick={() => {
+                  setinputtimemin("");
+                  setinputtimesec("");
+                }}
+              >
+                Reset
+              </button>
+            </form>
+          ) : (
+            ""
+          )}
         </div>
-        <form
-          className="d-flex flex-row "
-          onSubmit={(e) => {
-            e.preventDefault();
-            const time = new Date();
-            time.setMinutes(time.getMinutes() + inputtimemin * 1);
-            time.setSeconds(time.getSeconds() + inputtimesec * 1);
-            restart(time);
-          }}
-        >
-          <input
-            className="w-4rem"
-            type="number"
-            min={0}
-            // max={60}
-            value={inputtimemin}
-            onChange={(e) => {
-              setinputtimemin(e.target.value);
-            }}
-            placeholder="Min"
-          />
-          <input
-            className="w-4rem"
-            type="number"
-            value={inputtimesec}
-            min={0}
-            max={60}
-            onChange={(e) => {
-              setinputtimesec(e.target.value);
-            }}
-            placeholder="Sec"
-          />
-          <button className="p-1 mx-2 bg-active rounded-1 ">set</button>
+        <div className="timer-content">
           <button
-            className="p-1 mx-2 bg-active rounded-1"
+            className="text-pomodoro time-duration text-shadow-sm text-1rem "
             onClick={() => {
-              setinputtimemin("");
-              setinputtimesec("");
+              setiscustom(!iscustom);
+              console.log(iscustom);
             }}
           >
-            Reset
+            Custom Time
           </button>
-        </form>
-        <div className="timer-content">
           <button
             className="text-pomodoro time-duration text-shadow-sm text-1rem "
             onClick={() => {
