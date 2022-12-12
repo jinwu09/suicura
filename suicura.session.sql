@@ -8,12 +8,6 @@ create table users (
     user_token text,
     PRIMARY KEY(user_id)
 );
-CREATE table userlog(
-    user_log_id INT AUTO_INCREMENT NOT null,
-    user_logedin datetime NOT NULL,
-    user_logedout datetime, 
-    PRIMARY KEY(user_log_id)
-)
 CREATE TABLE todolists (
     todo_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -65,6 +59,26 @@ CREATE TABLE team_logs(
     PRIMARY KEY (team_log_id)
 );
 --@block
+CREATE table user_log(
+    user_log_id INT AUTO_INCREMENT NOT null,
+    user_id int not NULL,
+    -- 0 login
+    -- 1 logout
+    user_status int not NULL,
+    user_log_date datetime, 
+    PRIMARY KEY(user_log_id)
+)
+--@block
+CREATE table user_session(
+    user_session_id INT AUTO_INCREMENT NOT null,
+    user_id int not NULL,
+    user_session_start datetime, 
+    user_session_end datetime, 
+    user_time_diff int,
+    PRIMARY KEY(user_session_id)
+)
+
+--@block
 show tables
 --@block
 drop table users, todolists, collabs, teams, team_user, team_logs
@@ -97,16 +111,17 @@ INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_c
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (2, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (2, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
 --@block
--- put data in todolist for user 13
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
-INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created) VALUES (13, "todo sample","todo desription", 0, CURRENT_TIMESTAMP );
+-- put data in todolist for user 8
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW())  );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 1 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 2 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 3 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 4 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 5 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 6 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 7 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 8 DAY );
+INSERT INTO todolists (user_id, todo_name, todo_description, todo_status, todo_created, todo_archived) VALUES (8, "todo sample","todo desription", 1, CURRENT_TIMESTAMP, DATE(NOW()) - INTERVAL 9 DAY );
 --@block
 
 -- for team todolist

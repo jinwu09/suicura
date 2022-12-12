@@ -57,8 +57,34 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     case 'auth':
                         echo json_encode($user->auth($data));
                         break;
+                    case 'logout':
+                        echo json_encode($user->logout($data));
+                        break;
                     case 'team':
                         echo json_encode($user->teamlist($data));
+                        break;
+                    case 'session':
+                        switch ($req[2]) {
+                            case 'in':
+                                echo json_encode($user->session_in($data));
+                                break;
+                            case 'out':
+                                echo json_encode($user->session_out($data));
+                                break;
+                            default:
+                                http_response_code(403);
+                                break;
+                        }
+                        break;
+                    case 'logs':
+                        switch ($req[2]) {
+                            case 'status':
+                                echo json_encode($user->status($data));
+                                break;
+                            default:
+                                http_response_code(403);
+                                break;
+                        }
                         break;
                     case 'todolist':
                         switch ($req[2]) {

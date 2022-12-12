@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { data_encrpyt, data_decrypt } from "../API/crypto";
+import { useHomeContext } from "../components/context/useHomeContext";
 
 const Test = () => {
   const [ciphertest, setCiphertext] = useState("");
   const [plaintext, setPlaintext] = useState("");
+  const { onlogout, onsessionout } = useHomeContext();
   return (
     <div>
       <p>CipherText / Decryption</p>
@@ -23,6 +25,21 @@ const Test = () => {
         }}
       >
         Encryption
+      </button>
+      <button
+        onClick={() => {
+          onlogout();
+        }}
+      >
+        lougout test
+      </button>
+
+      <button
+        onClick={() => {
+          onsessionout();
+        }}
+      >
+        onsessionout test
       </button>
     </div>
   );
