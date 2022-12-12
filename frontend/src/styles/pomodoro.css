@@ -1,4 +1,4 @@
-/* @import "Config.css"; */
+/* text-pomodoro@import "Config.css"; */
 
 .bg-pomodoro {
   background-color: var(--bgPomodoro) !important;
@@ -20,4 +20,56 @@
 }
 .transition-all {
   transition: all 0.5s;
+}
+
+.pomodoro {
+  background-color: #ffd36a;
+  border-radius: 5px;
+  margin: 65px 15px 0px;
+  text-align: center;
+  height: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.pomodoro .start {
+  margin-bottom: 30px;
+  font-size: 25px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #ffd36a;
+  text-shadow: none;
+  font-weight: bold;
+  border-bottom: 3px solid rgb(224, 224, 224);
+}
+
+.pomodoro-time {
+  font-weight: bold;
+}
+
+.color-active {
+  color: rgb(255, 0, 0);
+}
+
+.timer-content {
+  background-color: #ffc235;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  width: 234px;
+}
+
+.time-duration {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.time-duration:hover {
+  background-color: #ffd36a;
 }
