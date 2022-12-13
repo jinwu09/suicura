@@ -19,4 +19,4 @@ https://trello.com/b/8xkmrYZE/err-code
   - Decryption
   [x] Login/auth endpoints (done)
     [x] token auth endpoint 
-  [x] Get all todo list endpoint
+  [x] Get all todo list endpoints
