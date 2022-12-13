@@ -70,15 +70,6 @@ const Pomodoro = () => {
                 placeholder="Sec"
               />
               <button className="px-10px bg-active rounded-1 ">set</button>
-              <button
-                className="p-1  bg-active rounded-1"
-                onClick={() => {
-                  setinputtimemin("");
-                  setinputtimesec("");
-                }}
-              >
-                Reset
-              </button>
             </form>
           ) : (
             ""
@@ -131,18 +122,32 @@ const Pomodoro = () => {
             {formatTime(minutes + hours * 60)}:{formatTime(seconds)}
           </button>
         </div>
-        <button
-          className="start text-pomodoro text-shadow-sm transition-all"
-          onClick={() => {
-            if (isRunning === true) {
-              pause();
-            } else {
-              resume();
-            }
-          }}
-        >
-          {isRunning ? "PAUSE" : "START"}
-        </button>
+        <div className="d-flex flex-column ">
+          <button
+            className="start text-pomodoro text-shadow-sm transition-all"
+            onClick={() => {
+              if (isRunning === true) {
+                pause();
+              } else {
+                resume();
+              }
+            }}
+          >
+            {isRunning ? "PAUSE" : "START"}
+          </button>
+          <button
+            className="p-1  bg-active rounded-1"
+            onClick={() => {
+              setinputtimemin("");
+              setinputtimesec("");
+              const time = new Date();
+              time.setMinutes(time.getMinutes() + 0``);
+              restart(time);
+            }}
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
